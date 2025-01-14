@@ -1,0 +1,35 @@
+header {
+  min-width: 100vw;
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0px 10px 10px #fff;
+}
+
+.navbar {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 960px;
+  height: 64px;
+}
+
+.navbar > * {
+  display: flex;
+  align-items: center;
+}
+
+.navbar > * > * {
+  margin-left: 8px;
+  margin-left: 8px;
+}
+
+.cinema-roll-icon {
+  display: flex;
+  align-items: center;
+  img {
+    width: 32px;
+    margin-right: 8px;
+  }
+}

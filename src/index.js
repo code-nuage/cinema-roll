@@ -1,7 +1,7 @@
 import Router from './router';
 import ControllerMainPage from './Controllers/MainPage';
 
-import './assets/styles/simpliestui.scss';
+import './assets/styles/main.scss';
 
 const routes = [{
   url: '/',

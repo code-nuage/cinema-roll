@@ -1,4 +1,5 @@
 import ViewHeader from '../Views/Header';
+import ViewMainPage from '../Views/MainPage';
 import ViewFooter from '../Views/Footer';
 
 import '../Styles/MainPage.scss';
@@ -12,6 +13,7 @@ const MainPage = class MainPage {
   render() {
     this.element_app.innerHTML = `
       ${ViewHeader}
+      ${ViewMainPage}
       ${ViewFooter}
     `;
   }
