@@ -1,87 +1,41 @@
 import axios from 'axios';
 
-const options = {
-  method: 'GET',
-  url: 'https://moviesdatabase.p.rapidapi.com/titles/%7Bid%7D/main_actors',
-  headers: {
-    'x-rapidapi-key': 'Sign Up for Key',
-    'x-rapidapi-host': 'moviesdatabase.p.rapidapi.com'
-  }
-};
+import ViewHeader from '../Views/Header';
+import ViewMovieList from '../Views/MovieList';
+import ViewFooter from '../Views/Footer';
 
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
+import API from '../keys';
 
-import axios from 'axios';
-
-import ViewNav from '../Views/nav';
-import ViewFooter from '../Views/footer';
-import ViewUsers from '../Views/users';
-
-const ListUsers = class ListUsers {
-  constructor(params) {
+const MoviesList = class MoviesList {
+  constructor() {
     this.app = document.querySelector('#app');
-    this.cards = undefined;
-    this.params = params;
-    this.users = [];
-    this.filter = [];
-
+    this.movies = [];
     this.run();
-  }
-
-  filterUsers(query) {
-    const normalizedQuery = query.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-    this.filteredUsers = this.users.filter((user) => {
-      const fullName = `${user.name.first} ${user.name.last}`
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-
-      return fullName.includes(normalizedQuery);
-    });
-
-    this.cards.innerHTML = this.rerender();
   }
 
   render() {
     return `
-    ${ViewNav}
-    <div class="cards container">
-      ${ViewUsers(this.users)}
-    </div>
+    ${ViewHeader}
+    <section class="movies">
+      ${ViewMovieList(this.movies)}
+    </section>
     ${ViewFooter}
     `;
   }
 
-  rerender() {
-    return `
-      ${ViewUsers(this.filteredUsers)}
-    `;
-  }
-
   run() {
-    axios.get('https://randomuser.me/api/', {
+    axios.get('https://api.themoviedb.org/3/movie/popular', {
       params: {
-        results: this.params.results || 1
+        api_key: API.TMDB,
+        language: 'fr-FR'
       }
     })
       .then((res) => {
-        this.users = res.data.results;
-        this.filteredUsers = [...this.users];
-
+        console.log('Films populaires:', res.data.results);
+        this.movies = res.data.results;
         this.app.innerHTML = this.render();
-        this.cards = document.querySelector('.cards');
-
-        document.querySelector('.searchbar').addEventListener('input', (event) => {
-          this.filterUsers(event.target.value);
-        });
       });
   }
 };
 
-export default ListUsers;
+export default MoviesList;
