@@ -1,6 +1,6 @@
 .movies {
   min-height: 100vh;
-  padding-top: 92px;
+  padding-top: 88px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 24px;
@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(0, auto);
 }
 
 .card {
@@ -20,6 +20,7 @@
   align-items: start;
   justify-content: space-between;
   flex-direction: column;
+  box-shadow: 0px 8px 8px 1px #00000066;
   .backdrop-path > img{
     width: 100%;
     border-radius: 4px;
@@ -44,7 +45,13 @@
       color: #555;
     }
   }
-  button {
+  .buttons {
     margin-top: 4px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    button {
+      margin-right: 10px;
+    }
   }
 }

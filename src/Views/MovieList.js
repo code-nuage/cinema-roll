@@ -5,7 +5,8 @@ const movie = (data) => {
   const {
     title,
     release_date,
-    poster_path
+    poster_path,
+    id
   } = data;
   /* eslint-enable @typescript-eslint/naming-convention */
   return (`
@@ -25,7 +26,10 @@ const movie = (data) => {
         </div>
       </div>
     </div>
-    <a href="movie"><button class="primary">Plus d'infos</button></a>
+    <div class="buttons">
+      <a href="movie?id=${id}"><button class="primary">Plus d'infos</button></a>
+      <a href=""><button class="secondary">Enregistrer</button></a>
+    </div>
   </div>
 `);
 };

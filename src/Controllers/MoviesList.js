@@ -31,7 +31,6 @@ const MoviesList = class MoviesList {
       }
     })
       .then((res) => {
-        console.log('Films populaires:', res.data.results);
         this.movies = res.data.results;
         this.app.innerHTML = this.render();
       });

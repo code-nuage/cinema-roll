@@ -13,11 +13,18 @@ header {
   justify-content: space-between;
   width: 960px;
   height: 64px;
-}
-
-.navbar > * {
-  display: flex;
-  align-items: center;
+  * {
+    display: flex;
+    align-items: center;
+  }
+  a.tab {
+    padding: 4px;
+    transition: .1s;
+    border-radius: 4px;
+  }
+  a.tab:hover {
+    background-color: #f4f4f4;
+  }
 }
 
 .navbar > * > * {
@@ -29,7 +36,7 @@ header {
   display: flex;
   align-items: center;
   img {
-    width: 40px;
+    width: 32px;
     margin-right: 8px;
   }
 }
