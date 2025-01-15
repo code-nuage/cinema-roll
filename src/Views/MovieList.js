@@ -9,13 +9,19 @@ const movie = (data) => {
     poster_path,
     id
   } = data;
+  let preview_path;
+  if (poster_path === null) {
+    preview_path = 'https://raw.githubusercontent.com/code-nuage/cinema-roll/refs/heads/main/src/assets/img/no-poster.png';
+  } else {
+    preview_path = `https://image.tmdb.org/t/p/w780/${poster_path}`;
+  }
   /* eslint-enable @typescript-eslint/naming-convention */
   return (`
   <div class="card">
     <div class="top">
       <div class="infos">
         <div class="backdrop-path">
-          <img src="https://image.tmdb.org/t/p/w780/${poster_path}" />
+          <img src="${preview_path}"/>
         </div>
         <div class="title">
           <h5>Titre: </h5>
