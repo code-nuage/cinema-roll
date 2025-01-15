@@ -13,26 +13,72 @@ const MoviesList = class MoviesList {
     this.run();
   }
 
-  render() {
-    return `
+  renderInit() {
+    this.app.innerHTML = `
     ${ViewHeader}
-    <section class="movies">
-      ${ViewMovieList(this.movies)}
-    </section>
+    <section class="movies"></section>
     ${ViewFooter}
+    `;
+
+    document.querySelector('.searchbar').addEventListener('input', (e) => {
+      const searchValue = e.target.value.trim();
+      if (searchValue.length > 4) {
+        this.search(searchValue);
+      } else {
+        this.getPopulars();
+      }
+    });
+  }
+
+  renderPopulars() {
+    return `
+    <h1>Films populaires</h1>
+    <div class="grid">
+      ${ViewMovieList(this.movies)}
+    </div>
+    `;
+  }
+
+  renderSearch() {
+    return `
+    <h1>Recherche</h1>
+    <div class="grid">
+      ${ViewMovieList(this.movies)}
+    </div>
     `;
   }
 
   run() {
+    this.renderInit();
+    this.getPopulars();
+  }
+
+  getPopulars() {
     axios.get('https://api.themoviedb.org/3/movie/popular', {
       params: {
         api_key: API.TMDB,
-        language: 'fr-FR'
+        language: 'fr-FR',
+        page: 1
       }
     })
       .then((res) => {
         this.movies = res.data.results;
-        this.app.innerHTML = this.render();
+        document.querySelector('.movies').innerHTML = this.renderPopulars();
+      });
+  }
+
+  search(search) {
+    axios.get('https://api.themoviedb.org/3/search/movie', {
+      params: {
+        api_key: API.TMDB,
+        language: 'fr-FR',
+        page: 1,
+        query: search
+      }
+    })
+      .then((res) => {
+        this.movies = res.data.results;
+        document.querySelector('.movies').innerHTML = this.renderSearch();
       });
   }
 };
