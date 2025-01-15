@@ -1,4 +1,5 @@
 import '../Styles/Movie.scss';
+import dateFormatter from '../Scripts/dateFormatter';
 
 // Feeling way to dumb because TMDB could already return the string of the genre
 // function getGenre(id) {
@@ -40,11 +41,6 @@ import '../Styles/Movie.scss';
 //   }
 // }
 
-function formatDate(date) {
-  const [year, month, day] = date.split('-');
-  return `${day}/${month}/${year}`;
-}
-
 /* eslint-disable @typescript-eslint/naming-convention */
 const movie = (data) => {
   // console.log(data);
@@ -59,14 +55,14 @@ const movie = (data) => {
   /* eslint-enable @typescript-eslint/naming-convention */
   return (`
     <div class='backdrop-path'>
-      <img src='https://image.tmdb.org/t/p/w780/${backdrop_path}' />
+      <img src='https://image.tmdb.org/t/p/w1280/${backdrop_path}' />
     </div>
     <div class='infos'>
       <h1>${title}</h1>
-      <h3>Date de sortie: ${formatDate(release_date)}<h3>
-      <h3>Genre: ${genres.map((id) => id.name).join(', ')}</h3>
-      <h3>Note: ${vote_average}/10</p>
-      <p>Résumé: ${overview}</p>
+      <h3><span>Date de sortie:</span>${dateFormatter(release_date)}<h3>
+      <h3><span>Genre:</span>${genres.map((id) => id.name).join(', ')}</h3>
+      <h3><span>Note:</span>${vote_average}/10</p>
+      <p><span>Résumé:</span>${overview}</p>
     </div>
 `);
 };

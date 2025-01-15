@@ -1,4 +1,5 @@
 import '../Styles/MovieList.scss';
+import dateFormatter from '../Scripts/dateFormatter';
 
 /* eslint-disable @typescript-eslint/naming-convention */
 const movie = (data) => {
@@ -14,7 +15,7 @@ const movie = (data) => {
     <div class="top">
       <div class="infos">
         <div class="backdrop-path">
-          <img src="https://image.tmdb.org/t/p/w300/${poster_path}" />
+          <img src="https://image.tmdb.org/t/p/w780/${poster_path}" />
         </div>
         <div class="title">
           <h5>Titre: </h5>
@@ -22,7 +23,7 @@ const movie = (data) => {
         </div>
         <div class="release-date">
           <h5>Date de sortie: </h5>
-          <h4>${release_date}</h4>
+          <h4>${dateFormatter(release_date)}</h4>
         </div>
       </div>
     </div>

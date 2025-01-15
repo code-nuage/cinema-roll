@@ -9,6 +9,7 @@ export default `
       <a class="tab">Listes</a>
     </div>
     <div class="right">
+      <input type="text" class="searchbar"/>
       <a href="https://www.github.com/code-nuage/cinema-roll"><button class="primary">GitHub</button></a>
     </div>
   </nav>
