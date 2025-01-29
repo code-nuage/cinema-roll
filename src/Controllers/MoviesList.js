@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import ViewHeader from '../Views/Header';
+import ViewAddMovieModale from '../Views/AddMovieModale';
 import ViewMovieList from '../Views/MovieList';
 import ViewFooter from '../Views/Footer';
 
@@ -16,6 +17,7 @@ const MoviesList = class MoviesList {
   renderInit() {
     this.app.innerHTML = `
     ${ViewHeader}
+    ${ViewAddMovieModale()}
     <section class="movies"></section>
     ${ViewFooter}
     `;

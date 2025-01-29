@@ -1,0 +1,27 @@
+.grid {
+	display: grid;
+}
+
+.modale-list {
+	padding: 8px;
+	background-color: #fff;
+	border-radius: 8px;
+	border: 1px solid #bbb;
+	display: flex;
+	align-items: center;
+	box-shadow: 0px 8px 8px 1px #00000066;
+	.preview {
+		width: 64px;
+		height: 64px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #dddddd;
+		font-size: 32px;
+		border-radius: 4px;
+		margin-right: 16px;
+	}
+	h1 {
+		font-size: 24px;
+	}
+}

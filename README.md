@@ -1,7 +1,34 @@
-# Cinema Roll
+# Hello World
 
-## What is Cinema Roll
-Cinema Roll is a ~~scholar project~~ nice and clean front end website that helps you to sort the movies that you want to see, you have seen, you like, you dislike etc...
+## Installation
 
-## Features
-Cinema Roll allows you to create movies lists that you can interact with: adds movies from The Movie Database, set favorite movies etc...
+Use the package manager [npm](https://www.npmjs.com/) to install helloworld.
+
+Use node v20 use :
+```bash
+nvm install 20
+```
+
+```bash
+npm i
+```
+
+## Usage
+
+Start the application dev with :
+
+```bash
+npm run start
+```
+
+Created the dist with :
+
+```bash
+npm run dist
+```
+
+Analyse the coding rules with :
+
+```bash
+npm run lint
+```

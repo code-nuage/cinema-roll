@@ -14,7 +14,13 @@ section.home {
   h2 {
     font-size: 28px;
   }
-  button {
+  .buttons {
     margin-top: 32px;
+	display: flex;
+	align-items: center;
+	a {
+		margin-left: 12px;
+		margin-right: 12px;
+	}
   }
 }
